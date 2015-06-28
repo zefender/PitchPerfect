@@ -15,11 +15,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var stopButton: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+        
     override func viewWillAppear(animated: Bool) {
         switchRecordingControls(false)
     }
@@ -49,7 +45,17 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
             recorderedAudio.filePathUrl = recorder.url
             recorderedAudio.title = recorder.url.lastPathComponent
             
-            performSegueWithIdentifier("playSoundSegue", sender: recorderedAudio) }
+            performSegueWithIdentifier("playSoundSegue", sender: recorderedAudio)
+        }
+        else {
+            var errorAlertController = UIAlertController(title: "Error", message: "Some error has occured while recording", preferredStyle:
+                UIAlertControllerStyle.Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: { action -> Void in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            errorAlertController.addAction(OKAction)
+            self.presentViewController(errorAlertController, animated: true, completion: nil)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -69,7 +75,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func switchRecordingControls(isRecording: Bool) {
-        recordLabel.hidden = !isRecording
+        recordLabel.text = !isRecording ? "Tap to record" : "recording"
         stopButton.hidden = !isRecording
     }
 }

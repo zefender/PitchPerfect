@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r2G-Kt-5Fe">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -32,7 +33,7 @@
                                 <color key="textColor" red="0.14509803921568626" green="0.28235294117647058" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-3D-vJV">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5s-3D-vJV">
                                 <rect key="frame" x="275" y="459" width="50" height="50"/>
                                 <state key="normal" image="StopButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,16 +141,16 @@
                                 <exclude reference="L2G-CT-gBX"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="K4g-ZR-FYc"/>
                                 <exclude reference="16r-9E-KRL"/>
                                 <exclude reference="v7k-cv-j46"/>
                                 <exclude reference="Ddp-E1-ILo"/>
                                 <exclude reference="Rgu-Bl-7aa"/>
-                                <exclude reference="bS8-Wg-IwL"/>
-                                <exclude reference="qdy-ai-aRG"/>
                                 <exclude reference="59o-Qc-h6G"/>
                                 <exclude reference="nOj-4d-po4"/>
+                                <exclude reference="bS8-Wg-IwL"/>
+                                <exclude reference="qdy-ai-aRG"/>
                                 <exclude reference="tQa-f0-I5P"/>
-                                <exclude reference="K4g-ZR-FYc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -161,16 +162,16 @@
                                 <include reference="L2G-CT-gBX"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="K4g-ZR-FYc"/>
                                 <include reference="16r-9E-KRL"/>
                                 <include reference="v7k-cv-j46"/>
                                 <include reference="Ddp-E1-ILo"/>
                                 <include reference="Rgu-Bl-7aa"/>
-                                <include reference="bS8-Wg-IwL"/>
-                                <include reference="qdy-ai-aRG"/>
                                 <include reference="59o-Qc-h6G"/>
                                 <include reference="nOj-4d-po4"/>
+                                <include reference="bS8-Wg-IwL"/>
+                                <include reference="qdy-ai-aRG"/>
                                 <include reference="tQa-f0-I5P"/>
-                                <include reference="K4g-ZR-FYc"/>
                             </mask>
                         </variation>
                     </view>
