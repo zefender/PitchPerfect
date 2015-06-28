@@ -41,10 +41,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
         if (flag) {
-            recorderedAudio = RecorderedAudio()
-            recorderedAudio.filePathUrl = recorder.url
-            recorderedAudio.title = recorder.url.lastPathComponent
-            
+            recorderedAudio = RecorderedAudio(url: recorder.url, title: recorder.url.lastPathComponent!)
             performSegueWithIdentifier("playSoundSegue", sender: recorderedAudio)
         }
         else {
@@ -54,7 +51,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
                     self.dismissViewControllerAnimated(true, completion: nil)
                 })
             errorAlertController.addAction(OKAction)
-            self.presentViewController(errorAlertController, animated: true, completion: nil)
+            presentViewController(errorAlertController, animated: true, completion: nil)
         }
     }
     

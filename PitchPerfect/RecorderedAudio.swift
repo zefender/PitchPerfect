@@ -8,12 +8,12 @@
 
 import UIKit
 
-class RecorderedAudio: NSObject {
+class RecorderedAudio {
     var title: NSString!
     var filePathUrl: NSURL!
     
-    override init() {
-        title = ""
-        filePathUrl = NSURL()
+    init(url: NSURL, title:String) {
+        self.filePathUrl = url
+        self.title = title
     }
 }

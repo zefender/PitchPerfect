@@ -11,14 +11,14 @@ import AVFoundation
 
 // Class for playing with custom effects
 // decouples this logic from ViewControllers
-class SoundPlayer: NSObject {
+class SoundPlayer {
     var audioPlayer:AVAudioPlayer!
     var audioEngine: AVAudioEngine!
     var recorderedAudioPath: NSURL!
     var audioFile: AVAudioFile!
     
 
-    override init()  {
+    init()  {
         audioEngine = AVAudioEngine()
     }
     
@@ -32,6 +32,8 @@ class SoundPlayer: NSObject {
     }
     
     func playSoundWithRate(rate: Float) -> Void {
+        stopPlayback()
+        
         audioPlayer = AVAudioPlayer(contentsOfURL: recorderedAudioPath, error: nil)
         audioPlayer.rate = rate
         audioPlayer.enableRate = true
@@ -48,13 +50,7 @@ class SoundPlayer: NSObject {
     }
     
     func playWithPitch(pitch: Float) -> Void {
-        // Don't stop if audioPlayer is nil
-        if(audioPlayer != nil) {
-            audioPlayer.stop()
-        }
-        
-        audioEngine.stop()
-        audioEngine.reset()
+        stopPlayback()
         
         var audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
@@ -71,5 +67,15 @@ class SoundPlayer: NSObject {
         
         audioEngine.startAndReturnError(nil)
         audioPlayerNode.play()
+    }
+    
+    func stopPlayback()     {
+        // Don't stop if audioPlayer is nil
+        if(audioPlayer != nil) {
+            audioPlayer.stop()
+        }
+        
+        audioEngine.stop()
+        audioEngine.reset()
     }
 }
