@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+// Class for playing with custom effects
+// decouples this logic from ViewControllers
 class SoundPlayer: NSObject {
     var audioPlayer:AVAudioPlayer!
     var audioEngine: AVAudioEngine!
@@ -46,6 +48,7 @@ class SoundPlayer: NSObject {
     }
     
     func playWithPitch(pitch: Float) -> Void {
+        // Don't stop if audioPlayer is nil
         if(audioPlayer != nil) {
             audioPlayer.stop()
         }

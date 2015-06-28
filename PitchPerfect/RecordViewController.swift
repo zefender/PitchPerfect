@@ -74,6 +74,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         audioSession.setActive(false, error: nil)
     }
     
+    // Swithes the state of recordings
     func switchRecordingControls(isRecording: Bool) {
         recordLabel.text = !isRecording ? "Tap to record" : "recording"
         stopButton.hidden = !isRecording

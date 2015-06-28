@@ -17,6 +17,8 @@ class PlaySoundsViewController: UIViewController {
         super.viewDidLoad()
 
         soundPlayer = SoundPlayer()
+        
+        // Init model for soundPlayer
         soundPlayer.recorderedAudioPath = recivedAudio.filePathUrl
     }
     
